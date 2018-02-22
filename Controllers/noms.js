@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-  Nom.findOne({_id: req.params.id}).then(nomz  => {
+  Nom.findOne({_id: req.params.id}).then(nomz => {
     res.render('Noms/show', nomz)
   })
 })
