@@ -21,5 +21,4 @@ const NomSchema = new mongoose.Schema({
 
 const Nom = mongoose.model('Nom', NomSchema)
 
-
 module.exports = Nom
