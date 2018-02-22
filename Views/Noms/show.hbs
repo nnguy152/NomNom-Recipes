@@ -4,7 +4,7 @@
 <p class="instr">Instructions: {{this.instructions}}</P>
 
 
-<a href="/Noms/edit/{{this.id}}">edit recipe</a>
+<a class="editRecipe" href="/Noms/edit/{{this.id}}">edit recipe</a>
 <form action="/Noms/{{id}}?_method=delete" method="POST">
   <input class="delete" type="submit" value="delete">
 </form>
