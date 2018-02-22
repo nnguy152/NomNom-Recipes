@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
     ingredients: req.body.ingredients
   }).then(() => {
     res.redirect('/Noms')
-  })
+  }).catch(err => res.send('FILL IN ALL FIELDS. Error Message:' + err))
 })
 
 router.put('/:id', (req, res) => {
