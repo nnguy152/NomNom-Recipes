@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Bulgogi",
+    "description": "Korea's most popular beef dishes",
+    "instructions": "Marinate thin sliced beef and fry it with vegetables",
+     "ingredients": "beef, vegetables, soy sauce, sugar"
+  },
+  {
+    "name": "Taco",
+    "description": "popular Mexican dishes",
+    "instructions": "grill meat, vegetables and eat them with Tortillas",
+     "ingredients": "meat, vegetables, hot sauce"
+  },
+  {
+    "name": "Fried Chicken",
+    "description": "soul food",
+    "instructions": "marinate chicken and fry it",
+     "ingredients": "chicken, flour, egg, spices"
+  }
+]
