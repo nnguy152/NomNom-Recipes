@@ -22,7 +22,7 @@ router.get('/:id', (req, res) => {
 
 router.put('/:id', (req, res) => {
   Nom.findOneAndUpdate({_id: req.params.id}, req.body).then(nomz => {
-    res.redirect('/Noms/show')
+    res.redirect('/Noms')
   })
 })
 
