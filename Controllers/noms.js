@@ -46,4 +46,5 @@ router.delete('/:id', (req, res) => {
     res.redirect('/Noms')
   })
 })
+
 module.exports = router
