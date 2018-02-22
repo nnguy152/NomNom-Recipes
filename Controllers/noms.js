@@ -20,6 +20,19 @@ router.get('/:id', (req, res) => {
   })
 })
 
+router.post('/', (req, res) => {
+  Nom.create({
+    name: req.body.name,
+    description: req.body.description,
+    instructions: req.body.instructions,
+    ingredients: req.body.ingredients
+  }).then(() => {
+    res.redirect('/Noms')
+  })
+})
+
+
+
 router.put('/:id', (req, res) => {
   Nom.findOneAndUpdate({_id: req.params.id}, req.body).then(nomz => {
     res.redirect('/Noms')
