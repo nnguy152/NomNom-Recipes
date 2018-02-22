@@ -1,0 +1,9 @@
+<h1>DELICIOUS RECIPES</h1>
+
+<ul>
+    {{#each nom}}
+      <li>
+        <a href="/Noms/{{this.id}}">{{this.name}}</a>
+      </li>
+    {{/each}}
+</ul>

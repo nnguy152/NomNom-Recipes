@@ -1,7 +1,12 @@
 const express = require('express')
 const router = express.Router()
+const Nom = require('../Models/Nom')
 
-const Nom = require('../Models/Noms')
+router.get('/', (req, res) => {
+  Nom.find({}).then(nom => {
+    res.render('Noms/index', {nom})
+  })
+})
 
 
 
