@@ -8,6 +8,9 @@ app.set('view engine', 'hbs')
 app.use(methodOverride('_method'))
 app.use(bodyParser.urlencoded({extended: true}))
 
+app.get('/', (req, res) => {
+  res.render('index')
+})
 
 app.listen(4000, () => {
   console.log('It work brah')
