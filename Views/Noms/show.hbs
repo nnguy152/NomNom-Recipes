@@ -4,3 +4,7 @@
 <p>Ingredients: {{this.ingredients}}</P>
 
 <a href="/Noms/edit/{{this.id}}">Edit Recipe</a>  
+
+<form action="/Noms/{{id}}?_method=delete" method="POST">
+  <input type="submit" value="delete">
+</form>

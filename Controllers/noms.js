@@ -14,6 +14,10 @@ router.get('/edit/:id', (req, res) => {
   })
 })
 
+router.get('/new', (req, res) => {
+  res.render('Noms/new')
+})
+
 router.get('/:id', (req, res) => {
   Nom.findOne({_id: req.params.id}).then(nomz => {
     res.render('Noms/show', nomz)
@@ -31,12 +35,15 @@ router.post('/', (req, res) => {
   })
 })
 
-
-
 router.put('/:id', (req, res) => {
   Nom.findOneAndUpdate({_id: req.params.id}, req.body).then(nomz => {
     res.redirect('/Noms')
   })
 })
 
+router.delete('/:id', (req, res) => {
+  Nom.findOneAndRemove({_id: req.params.id}).then(() => {
+    res.redirect('/Noms')
+  })
+})
 module.exports = router
