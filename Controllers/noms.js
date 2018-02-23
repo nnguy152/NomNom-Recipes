@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
-// const bodyParser = require('body-parser')
-// const methodOverride = require('method-override')
+const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
 const passport = require('passport')
 const Nom = require('../Models/Nom')
 
@@ -18,8 +18,8 @@ router.get('/signup', (req, res) => {
 
 router.post('/signup', (req, res) => {
   var signupStrategy = passport.authenticate('local-signup', {
-    successRedirect: '/',
-    failureRedirect: '/signup',
+    successRedirect: '/index',
+    failureRedirect: '/Noms/signup',
     failureFlash: true
   })
   return signupStrategy(req, res)

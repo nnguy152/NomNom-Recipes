@@ -7,6 +7,7 @@ const session = require('express-session')
 const flash = require('connect-flash')
 const cookieParser = require('cookie-parser')
 const nomsController = require('./Controllers/noms')
+
 const app = express()
 
 app.use(cookieParser())
@@ -33,7 +34,7 @@ app.get('/', (req, res) => {
 
 app.use('/noms', nomsController)
 
-// app.use('/users', usersController)
+// app.use('/users', usersController) to do it the conventional way with new users controller file
 
 app.listen(4000, () => {
   console.log('It work brah')
