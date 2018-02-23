@@ -1,11 +1,54 @@
 const express = require('express')
 const router = express.Router()
+// const bodyParser = require('body-parser')
+// const methodOverride = require('method-override')
+const passport = require('passport')
 const Nom = require('../Models/Nom')
 
 router.get('/', (req, res) => {
   Nom.find({}).then(nomz => {
     res.render('Noms/index', {nomz})
   })
+})
+
+// signup
+router.get('/signup', (req, res) => {
+  res.render('signup', {message: req.flash('signupMessage')})
+})
+
+router.post('/signup', (req, res) => {
+  var signupStrategy = passport.authenticate('local-signup', {
+    successRedirect: '/',
+    failureRedirect: '/signup',
+    failureFlash: true
+  })
+  return signupStrategy(req, res)
+})
+
+// login
+router.get('/login', (req, res) => {
+  res.render('login', {message: req.flash('loginMessage')})
+})
+
+router.post('/login', (req, res) => {
+  var loginProperty = passport.authenticate('local-login', {
+    successRedirect: '/',
+    failureRedirect: '/login',
+    failureFlash: true
+  })
+  return loginProperty(req, res)
+})
+
+// logout
+router.get('/logout', (req, res) => {
+  req.logout()
+  req.redirect('/')
+})
+
+// secret
+router.get('/secret', (req, res) => {
+  if (req.isAuthenticated()) res.render('secret')
+  res.redirect('/')
 })
 
 router.get('/edit/:id', (req, res) => {

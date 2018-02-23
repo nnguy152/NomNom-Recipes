@@ -5,20 +5,18 @@ const bodyParser = require('body-parser')
 const passport = require('passport')
 const session = require('express-session')
 const flash = require('connect-flash')
-const morgan = require('morgan')
 const cookieParser = require('cookie-parser')
 const nomsController = require('./Controllers/noms')
 const app = express()
 
-app.use(morgan('dev'))
 app.use(cookieParser())
 
 app.set('view engine', 'hbs')
 app.use(methodOverride('_method'))
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(flash())
-app.use(session())
+app.use(session({ secret: 'BLAH' }))
 
 require('./Config/passport')(passport)
 app.use(passport.initialize())
@@ -34,6 +32,8 @@ app.get('/', (req, res) => {
 })
 
 app.use('/noms', nomsController)
+
+// app.use('/users', usersController)
 
 app.listen(4000, () => {
   console.log('It work brah')
